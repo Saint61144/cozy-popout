@@ -1,0 +1,54 @@
+COZY DESKTOP — PRIVACY AND LOCAL CHANGES
+
+The original ZIP contains the executable, readable source, extension, artwork,
+instructions and test notes. It contains no browser profile, account data,
+cookies, browsing history, email, private signing key or developer computer path.
+The manifest key is public and only keeps the extension ID stable.
+
+No accounts, subscriptions, advertising, telemetry, analytics, crash uploads,
+external libraries, remote code, automatic updates or internet endpoints.
+The app opens no HTTP/WebSocket listener and sends no network requests.
+YouTube itself continues to operate under its own privacy practices.
+
+The extension runs only on https://www.youtube.com/ at the top frame. It reads
+the current watch video's title, identifier and playback state to show controls.
+It queries tab IDs and active flags without reading other tab URLs or history.
+Playback information is held in memory and sent locally to the companion.
+It does not save playback history or titles to disk.
+
+The one additional named extension permission is nativeMessaging. Its purpose
+is to connect to com.cozy_popout.companion. The generated host manifest allows
+only this fixed extension origin:
+chrome-extension://appjinnikfnknnaipninjgaokcaopknm/
+The host also checks that exact origin on launch. Commands have an allowlist,
+bounded values, media-key checks and a 64 KiB message limit. No command can run
+shell instructions, read arbitrary files or upload information through the app.
+These are scope controls; this is not a guarantee against all software defects.
+
+The app reads its bundled Reiner resource and uses your Windows user ID in
+memory to restrict its local named pipe to your account. Its pipe permissions
+explicitly deny network logons. The user ID and a hash of the installation
+folder stay in memory. The app does not read your documents, capture screens, record input,
+access the microphone/camera or collect system-wide keyboard activity.
+
+Only when you press Connect:
+- It creates Cozy.NativeHost.json beside the executable. This local file holds
+  the absolute executable path and the public allowed extension origin.
+- It sets this app's per-user native-messaging registry entry for the selected
+  browser. It does not request administrator access or modify browser policies.
+  Brave: HKCU\Software\BraveSoftware\Brave-Browser\NativeMessagingHosts\com.cozy_popout.companion
+  Chrome: HKCU\Software\Google\Chrome\NativeMessagingHosts\com.cozy_popout.companion
+  Edge: HKCU\Software\Microsoft\Edge\NativeMessagingHosts\com.cozy_popout.companion
+
+For Brave, Connect also registers the same host in the Chrome-compatible location.
+Remove connection deletes entries only if they still point at this
+copy of the app. Deleting the extracted folder removes the generated JSON file.
+No scheduled task, background service or startup registration is created.
+
+Share the original ZIP. The generated local JSON file should stay on your PC.
+
+Connect also opens this extension's own connection page in the selected browser.
+It does not open an external website. A real ready handshake confirms the link.
+
+The visible
+connection tab owns the native port. Closing it disconnects desktop controls.

@@ -1,0 +1,15 @@
+BUILDING THE INCLUDED SOURCE (OPTIONAL)
+
+Users do not need a compiler. CozyDesktop.exe is already included.
+The app uses only Windows/.NET Framework libraries and embedded artwork.
+
+For a source rebuild, open Command Prompt in the extracted package folder and
+run this single command. No PowerShell or Python scripts are involved:
+
+%WINDIR%\Microsoft.NET\Framework64\v4.0.30319\csc.exe /nologo /target:winexe /platform:anycpu /optimize+ /debug- /out:CozyDesktop.exe /win32manifest:source\app.manifest /win32icon:source\Reiner.ico /resource:extension\reiner128.png,Reiner.png /reference:System.Drawing.dll /reference:System.Windows.Forms.dll /reference:System.Web.Extensions.dll source\CozyDesktop.cs source\BuildIdentity.cs
+
+The desktop executable targets Windows with .NET Framework 4.8 recommended.
+The extension source is directly readable in the extension folder.
+There is no private signing key required. The manifest contains a public key
+only; changing it changes the extension ID and requires matching BuildIdentity.
+The executable is unsigned. Building it does not create a trusted signature.

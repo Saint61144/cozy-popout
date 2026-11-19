@@ -1,0 +1,21 @@
+COZY DESKTOP 4.3.2
+
+Install the included extension folder from your browser’s Extensions page
+using Developer mode and Load unpacked. The separate drop-in ZIP contains
+just the extension. If you have an older version, replace it and refresh YouTube.
+
+Open CozyDesktop.exe, select your browser and press Connect.
+Leave the connection tab open. Click the small Reiner on your desktop for
+playback controls. Click outside the panel, click Reiner again, or press Escape
+to close it. Drag Reiner to move him. Right-click for setup or to exit.
+Use Float video on YouTube to pop out the video.
+
+If Connect opens a tab in the wrong browser profile, switch to the profile
+with Cozy installed and press Connect in Cozy’s toolbar menu.
+
+Keep the extracted folder. After moving it, press Connect again.
+To remove the local link, right-click Reiner, choose Connect, then select
+Remove connection. Close the connection tab to end an active link.
+
+The extension uses no service worker. Share the original ZIP because the
+generated Cozy.NativeHost.json contains your local installation path.

@@ -1,0 +1,60 @@
+{
+  "manifest_version": 3,
+  "name": "Cozy Popout + Desktop",
+  "version": "4.3.2",
+  "description": "Keep YouTube close with a floating player and simple playback controls.",
+  "minimum_chrome_version": "116",
+  "icons": {
+    "16": "reiner16.png",
+    "32": "reiner32.png",
+    "48": "reiner48.png",
+    "128": "reiner128.png"
+  },
+  "action": {
+    "default_title": "Cozy Popout",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "reiner16.png",
+      "32": "reiner32.png",
+      "48": "reiner48.png",
+      "128": "reiner128.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.youtube.com/*"
+      ],
+      "js": [
+        "player-bridge.js"
+      ],
+      "world": "MAIN",
+      "run_at": "document_start",
+      "all_frames": false
+    },
+    {
+      "matches": [
+        "https://www.youtube.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "reiner48.png"
+      ],
+      "matches": [
+        "https://www.youtube.com/*"
+      ]
+    }
+  ],
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnGD6Sb41ukATkuPyVhOIr9DpJshdFqLFn3Y+MtBaTw1RHO0GqwAeRdL2W17DAY8N/jFsMZ2lgPNLyZqX6Kwq5bz+hFIM+4llAi8s5L4t9nmKnay2/HsEVbulCdqQHJCYHQlDcfbvlpdItGt9bKEtTRcRC0v5Bwwy4zrCa/S6Z0/qfhRU24nfdAJld7dqSZjajpAHsCgd/za085W/OLGVnSFIYSywrvFeNL8eqpUZ59sXGxzKBWE6FLgkYhuOBI+Qjvcsl0PkTEouOrEiyVi48DkhqTW/VrpOnGAKgOVUhSoQ/FKMMZU+lO5n2hFKTnQ5kO8r63cUlXayaY6X1IqNVQIDAQAB",
+  "permissions": [
+    "nativeMessaging"
+  ]
+}

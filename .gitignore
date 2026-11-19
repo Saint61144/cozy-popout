@@ -1,0 +1,9 @@
+# Local registration contains your installation path.
+Cozy.NativeHost.json
+*.exe
+*.pdb
+*.log
+*.pem
+*.pfx
+.env*
+node_modules/
